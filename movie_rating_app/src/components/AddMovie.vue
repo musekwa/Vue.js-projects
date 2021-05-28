@@ -17,12 +17,16 @@
     <v-select
     label="Movie Release Year"
     v-model="release_year"
+    required
+    :rules="releaseRules"
     :items="years"
     >
     </v-select>
     <v-text-field
     label="Movie Genre"
     v-model="genre"
+    required
+    :rules="genreRules"
     >
     </v-text-field>
     <v-btn
@@ -47,6 +51,13 @@ export default {
     release_year: '',
     nameRules: [
       v => !!v || 'Movie name is required',
+    ],
+    genreRules: [
+      v => !!v || 'Movie genre year is required',
+      v => (v && v.length <= 80) || 'Genre must be less than or equal to 80 characters.',
+    ],
+    releaseRules: [
+      v => !!v || 'Movie release year is required',
     ],
     select: null,
     years: [
@@ -73,10 +84,20 @@ export default {
           },
         })
         .then(()=>{
+          this.$swal(
+            'Great!',
+            'Movie added successfully!',
+            'success',
+          );
           this.$router.push({name: 'Home'});
           this.$refs.form.reset();
         })
         .catch(()=>{
+          this.$swal(
+            'Oh oo!',
+            'Could not add the movie',
+            'error',
+          );
         });
       }
       return true;

@@ -5,6 +5,7 @@
   "author": "musekwa <musekwa2011@gmail.com>",
   "private": true,
   "scripts": {
+    "serve": "nodemon server.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -23,6 +24,8 @@
     "morgan": "^1.10.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-star-rating": "^1.7.0",
+    "vue-swal": "^1.0.0",
     "vuetify": "^2.5.0"
   },
   "devDependencies": {

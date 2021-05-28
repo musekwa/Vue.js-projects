@@ -7,9 +7,11 @@ import BootstrapVue from "bootstrap-vue"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 import Vuetify from "vuetify"
+import VueSwal from 'vue-swal';
 
 Vue.use(BootstrapVue);
 Vue.use(Vuetify);
+Vue.use(VueSwal);
 
 Vue.config.productionTip = false;
 /* eslint-disable no-new */
